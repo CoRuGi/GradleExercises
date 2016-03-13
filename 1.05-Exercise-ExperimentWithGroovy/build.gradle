@@ -11,40 +11,54 @@ task stringsAndTypes << {
     // TODO: Run `$ gradle sAT`
     println "Nice work abbreviating the task name"
 
-
     // TODO: Create a variable named foo and assign it the value 4.2
+    def foo = 4.2
 
     // TODO: Print the value and class of foo
+    println "foo is of type: ${foo.class} and has value $foo"
 
     // TODO: Use string interpolation to print the square root of 127
     // HINT: http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html
-
+    println "Square root of 127 is: ${Math.sqrt(127)}"
+	
     // TODO: Assign the current date to foo and print it, along with its type
     // HINT:
     // http://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html
+    foo = new java.util.Date()
+    println "foo is of class: ${foo.class} and has value $foo"
 
     // TODO: Use the `substring` method to extract my name from this string
     def hello = "Hello, Jeremy.";
+    def name = hello.substring(7, 13)
 
     // TODO: Use `toUpperCase` to capitalize and print my name
+    println "The name in uppercasses is: ${name.toUpperCase()}"
 
 }
 
 task closures << {
     // TODO: Declare a closure that takes two arguments and adds them together
     // HINT: http://www.groovy-lang.org/closures.html
+    def doubleIt = { int x, int y -> x + y }
 
     // TODO: Call your closure with arguments 17 and 25, and print the result
     // Beware that something like `println addTwo 17, 25` is ambiguous
+    println "17 and 25 equals: ${doubleIt(17,25)}"
 }
 
 task lists << {
     // TODO: Declare a list containing 5 of your favorite candies
     // HINT: Try searching for "groovy list literal"
+    def list = ['mars', 'snickers', 'kitkat', 'm&ms', 'rolo']
 
     // TODO: Create a new list of your candies in all caps
     // HINT: http://mrhaki.blogspot.ca/2010/05/groovy-goodness-use-collect-with.html
+    def capsList = list.collect{ it.toUpperCase() }
 
     // TODO: Print each capital candy
+    capsList.each{ println "I like $it" }
 
 }
+
+def foo = "bar"
+println "$foo + foo = ${foo + "foo"}"
